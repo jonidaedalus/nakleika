@@ -1,17 +1,18 @@
-package com.company.nakleika.entity.client.dict;
+package com.company.nakleika.entity.dict;
 
 import com.haulmont.chile.core.datatypes.impl.EnumClass;
 
 import javax.annotation.Nullable;
 
 
-public enum DCity implements EnumClass<String> {
+public enum ECity implements EnumClass<String> {
 
-    ALMATY("Almaty");
+    ALMATY("ALMATY"),
+    NUR_SULTAN("NUR_SULTAN");
 
     private String id;
 
-    DCity(String value) {
+    ECity(String value) {
         this.id = value;
     }
 
@@ -20,8 +21,8 @@ public enum DCity implements EnumClass<String> {
     }
 
     @Nullable
-    public static DCity fromId(String id) {
-        for (DCity at : DCity.values()) {
+    public static ECity fromId(String id) {
+        for (ECity at : ECity.values()) {
             if (at.getId().equals(id)) {
                 return at;
             }

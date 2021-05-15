@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        caption="msg://clientEdit.caption"
+        caption="msg://DCarColorEdit.caption"
         focusComponent="form"
-        messagesPack="com.company.nakleika.web.screens.client">
+        messagesPack="com.company.nakleika.web.screens.dcarcolor">
     <data>
-        <instance id="clientDc"
-                  class="com.company.nakleika.entity.client.Client">
-            <view extends="_local"/>
+        <instance id="dCarColorDc"
+                  class="com.company.nakleika.entity.dict.DCarColor">
+            <view extends="dCarColor-view"/>
             <loader/>
         </instance>
     </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="editActions" spacing="true">
-        <form id="form" dataContainer="clientDc">
+        <form id="form" dataContainer="dCarColorDc">
             <column width="350px">
-                <textField id="fullNameField" property="fullName"/>
-                <textField id="phoneNumberField" property="phoneNumber"/>
-                <lookupField id="cityField" property="city"/>
+                <textField id="nameField" property="name"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

@@ -3,5 +3,15 @@
     <persistence-unit name="nakleika" transaction-type="RESOURCE_LOCAL">
 
         <class>com.company.nakleika.entity.client.Client</class>
+        <class>com.company.nakleika.entity.advertiser.Advertiser</class>
+        <class>com.company.nakleika.entity.driver.Driver</class>
+        <class>com.company.nakleika.entity.advertisement.Advertisement</class>
+        <class>com.company.nakleika.entity.route.Route</class>
+        <class>com.company.nakleika.entity.car.Car</class>
+        <class>com.company.nakleika.entity.contract.Contract</class>
+        <class>com.company.nakleika.entity.employee.Employee</class>
+        <class>com.company.nakleika.entity.sticker.Sticker</class>
+        <class>com.company.nakleika.entity.dict.DCarModel</class>
+        <class>com.company.nakleika.entity.dict.DCarColor</class>
     </persistence-unit>
 </persistence>

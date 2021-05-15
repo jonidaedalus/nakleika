@@ -1,0 +1,2 @@
+alter table NAKLEIKA_CAR add constraint FK_NAKLEIKA_CAR_ON_DRIVER foreign key (DRIVER_ID) references NAKLEIKA_DRIVER(ID);
+create index IDX_NAKLEIKA_CAR_ON_DRIVER on NAKLEIKA_CAR (DRIVER_ID);

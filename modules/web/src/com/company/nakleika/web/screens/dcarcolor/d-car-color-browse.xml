@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://DCarColorBrowse.caption"
+        focusComponent="dCarColorsTable"
+        messagesPack="com.company.nakleika.web.screens.dcarcolor">
+    <data readOnly="true">
+        <collection id="dCarColorsDc"
+                    class="com.company.nakleika.entity.dict.DCarColor">
+            <view extends="dCarColor-view"/>
+            <loader id="dCarColorsDl">
+                <query>
+                    <![CDATA[select e from nakleika_DCarColor e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="dCarColorsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="dCarColorsTable"
+                dataLoader="dCarColorsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="dCarColorsTable"
+                    width="100%"
+                    dataContainer="dCarColorsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="dCarColorsTable.create"/>
+                <button id="editBtn" action="dCarColorsTable.edit"/>
+                <button id="removeBtn" action="dCarColorsTable.remove"/>
+                <button id="refreshBtn" action="dCarColorsTable.refresh"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

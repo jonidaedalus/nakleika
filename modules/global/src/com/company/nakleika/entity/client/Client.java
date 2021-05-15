@@ -1,15 +1,13 @@
 package com.company.nakleika.entity.client;
 
-import com.company.nakleika.entity.client.dict.DCity;
+import com.company.nakleika.entity.dict.ECity;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
-@Table(name = "NAKLEIKA_CLIENT")
-@Entity(name = "nakleika_Client")
+@MappedSuperclass
 public class Client extends StandardEntity {
     private static final long serialVersionUID = -6911287770545708947L;
 
@@ -25,12 +23,12 @@ public class Client extends StandardEntity {
     @Column(name = "CITY", nullable = false)
     private String city;
 
-    public DCity getCity() {
-        return city == null ? null : DCity.fromId(city);
+    public void setCity(ECity city) {
+        this.city = city == null ? null : city.getId();
     }
 
-    public void setCity(DCity city) {
-        this.city = city == null ? null : city.getId();
+    public ECity getCity() {
+        return city == null ? null : ECity.fromId(city);
     }
 
     public String getPhoneNumber() {

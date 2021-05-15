@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://driverEdit.caption"
+        focusComponent="driverForm"
+        messagesPack="com.company.nakleika.web.screens.driver">
+    <data>
+        <instance id="driverDc"
+                  class="com.company.nakleika.entity.driver.Driver">
+            <view extends="driver-edit"/>
+            <loader/>
+            <instance id="carDc" property="car"/>
+        </instance>
+        <collection id="dCarColorDc" class="com.company.nakleika.entity.dict.DCarColor" view="_local">
+            <loader id="dCarColorDl">
+                <query><![CDATA[select e from nakleika_DCarColor e]]></query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <vbox spacing="true" width="100%">
+            <groupBox id="driverGroupBox"
+                      caption="msg://com.company.nakleika.entity.driver/Driver"
+                      height="100%">
+                <form id="driverForm" dataContainer="driverDc" align="MIDDLE_CENTER">
+                    <column width="350px">
+                        <textField id="fullNameField" property="fullName"/>
+                        <textField id="phoneNumberField" property="phoneNumber"/>
+                        <lookupField id="cityField" property="city"/>
+                    </column>
+                </form>
+            </groupBox>
+            <groupBox id="carGroupBox"
+                      caption="msg://com.company.nakleika.entity.car/Car"
+                      height="100%">
+                <form id="carForm" dataContainer="carDc" align="MIDDLE_CENTER">
+                    <column width="350px">
+                        <pickerField id="carModelField" property="carModel" >
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </pickerField>
+                        <textField id="plateNumberTextField" property="plateNumber"/>
+                        <lookupField id="carClass" property="carClass" optionsEnum="com.company.nakleika.entity.dict.ECarClass"/>
+                        <lookupField id="carColor" property="color" optionsContainer="dCarColorDc"/>
+                        <textField property="releaseYear" datatype="int"/>
+                    </column>
+                </form>
+
+
+                <groupBox caption="Photo" spacing="true"
+                          height="300px" width="300px" expand="image">
+                    <image id="image"
+                           dataContainer="carDc"
+                           property="imageFile"
+                           width="100%"
+                           align="MIDDLE_CENTER"
+                           scaleMode="CONTAIN"/>
+                    <hbox align="BOTTOM_LEFT"
+                          spacing="true">
+                        <upload id="uploadField"/>
+                        <button id="downloadImageBtn"
+                                caption="Download"
+                                invoke="onDownloadImageBtnClick"/>
+                        <button id="clearImageBtn"
+                                caption="Clear"
+                                invoke="onClearImageBtnClick"/>
+                    </hbox>
+                </groupBox>
+
+
+            </groupBox>
+        </vbox>
+
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose" caption="mainMsg://saveBtn.caption"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

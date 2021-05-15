@@ -1,0 +1,1 @@
+create unique index IDX_NAKLEIKA_CAR_UK_PLATE_NUMBER on NAKLEIKA_CAR (PLATE_NUMBER) where DELETE_TS is null ;

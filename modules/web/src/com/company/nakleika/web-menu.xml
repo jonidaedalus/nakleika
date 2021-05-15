@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-nakleika" insertBefore="administration" caption="mainMsg://menu_config.application-nakleika">
-        <item screen="nakleika_Client.browse" caption="mainMsg://menu_config.nakleika_Client.browse"/>
+        <item screen="nakleika_Driver.browse" caption="mainMsg://menu_config.nakleika_Driver.browse"/>
+        <menu id="dict" caption="mainMsg://menu_config.dict">
+            <item screen="nakleika_DCarModel.browse" caption="mainMsg://menu_config.nakleika_DCarModel.browse"/>
+            <item screen="nakleika_DCarColor.browse" caption="mainMsg://menu_config.nakleika_DCarColor.browse"/>
+        </menu>
     </menu>
 </menu-config>

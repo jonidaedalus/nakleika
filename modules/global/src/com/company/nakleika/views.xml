@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
 
+    <view entity="nakleika_Driver" name="driver-view" extends="_local">
+        <property name="car" view="_minimal">
+            <property name="carClass"/>
+            <property name="releaseYear"/>
+            <property name="imageFile" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="nakleika_Driver" name="driver-edit" extends="_local">
+        <property name="car" view="_minimal">
+            <property name="carClass"/>
+            <property name="releaseYear"/>
+            <property name="imageFile" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="nakleika_DCarModel" name="dCarModel-view" extends="_local"/>
+    <view entity="nakleika_DCarColor" name="dCarColor-view" extends="_local"/>
 </views>

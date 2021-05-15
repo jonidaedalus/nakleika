@@ -1,0 +1,2 @@
+alter table NAKLEIKA_CAR add constraint FK_NAKLEIKA_CAR_ON_CAR_MODEL foreign key (CAR_MODEL_ID) references NAKLEIKA_D_CAR_MODEL(ID);
+create index IDX_NAKLEIKA_CAR_ON_CAR_MODEL on NAKLEIKA_CAR (CAR_MODEL_ID);

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://driverBrowse.caption"
+        focusComponent="driversTable"
+        messagesPack="com.company.nakleika.web.screens.driver">
+    <data readOnly="true">
+        <collection id="driversDc"
+                    class="com.company.nakleika.entity.driver.Driver">
+            <view extends="driver-view"/>
+            <loader id="driversDl">
+                <query>
+                    <![CDATA[select e from nakleika_Driver e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="driversTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="driversTable"
+                dataLoader="driversDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="driversTable"
+                    width="100%"
+                    dataContainer="driversDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+            </actions>
+            <columns>
+                <column id="fullName"/>
+                <column id="phoneNumber"/>
+                <column id="city"/>
+                <column id="car"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="driversTable.create"/>
+                <button id="editBtn" action="driversTable.edit"/>
+                <button id="removeBtn" action="driversTable.remove"/>
+                <button id="refreshBtn" action="driversTable.refresh"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
