@@ -6,6 +6,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @MappedSuperclass
 public class Client extends StandardEntity {
@@ -17,6 +18,7 @@ public class Client extends StandardEntity {
 
     @NotNull
     @Column(name = "PHONE_NUMBER", nullable = false, unique = true)
+    @Pattern(message = "{msg://Client.fullName.validation.Pattern}", regexp = "^\\+?77([0124567][0-8]\\d{7})$")
     private String phoneNumber;
 
     @NotNull

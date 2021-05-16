@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://advertisementEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.nakleika.web.screens.advertisement">
+    <data>
+        <instance id="advertisementDc"
+                  class="com.company.nakleika.entity.advertisement.Advertisement">
+            <view extends="advertisement-view"/>
+            <loader/>
+            <instance id="stickerDc" property="sticker"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="advertisementDc">
+            <column width="350px">
+                <pickerField id="advertiserField" property="advertiser">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <lookupField id="typeField" property="type"/>
+                <pickerField id="stickerField" property="sticker">
+                    <actions>
+                        <action id="open_composition" type="picker_open_composition"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="budgetField" property="budget"/>
+                <lookupField id="carClassField" property="carClass"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

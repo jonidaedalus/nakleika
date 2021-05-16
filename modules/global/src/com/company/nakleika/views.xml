@@ -17,4 +17,22 @@
     </view>
     <view entity="nakleika_DCarModel" name="dCarModel-view" extends="_local"/>
     <view entity="nakleika_DCarColor" name="dCarColor-view" extends="_local"/>
+    <view entity="nakleika_Advertiser" name="advertiser-view" extends="_local">
+        <property name="image" view="_minimal"/>
+        <property name="advertisements" view="_minimal"/>
+    </view>
+    <view entity="nakleika_Advertiser" name="advertiser-edit" extends="_local">
+        <property name="image" view="_minimal"/>
+        <property name="advertisements" view="_minimal"/>
+    </view>
+    <view entity="nakleika_Advertisement" name="advertisement-view" extends="_local">
+        <property name="advertiser" view="_minimal">
+            <property name="image" view="_minimal"/>
+            <property name="fullName"/>
+        </property>
+        <property name="sticker" view="_minimal"/>
+    </view>
+    <view entity="nakleika_Advertisement" name="advertisement-edit" extends="_local">
+        <property name="sticker" view="_minimal"/>
+    </view>
 </views>

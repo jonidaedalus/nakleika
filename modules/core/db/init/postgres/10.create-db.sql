@@ -92,6 +92,12 @@ create table NAKLEIKA_ADVERTISEMENT (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    ADVERTISER_ID uuid,
+    TYPE_ varchar(50) not null,
+    STICKER_ID uuid,
+    BUDGET decimal(19, 2) not null,
+    CAR_CLASS varchar(50) not null,
+    --
     primary key (ID)
 )^
 -- end NAKLEIKA_ADVERTISEMENT
@@ -127,6 +133,8 @@ create table NAKLEIKA_ADVERTISER (
     FULL_NAME varchar(255) not null,
     PHONE_NUMBER varchar(255) not null,
     CITY varchar(50) not null,
+    --
+    IMAGE_ID uuid not null,
     --
     primary key (ID)
 )^

@@ -19,14 +19,18 @@
     <dialogMode height="600"
                 width="800"/>
     <layout expand="editActions" spacing="true">
-        <vbox spacing="true" width="100%">
+        <vbox spacing="true">
             <groupBox id="driverGroupBox"
                       caption="msg://com.company.nakleika.entity.driver/Driver"
                       height="100%">
-                <form id="driverForm" dataContainer="driverDc" align="MIDDLE_CENTER">
+                <form id="driverForm" dataContainer="driverDc" captionPosition="TOP">
                     <column width="350px">
                         <textField id="fullNameField" property="fullName"/>
+                    </column>
+                    <column>
                         <textField id="phoneNumberField" property="phoneNumber"/>
+                    </column>
+                    <column>
                         <lookupField id="cityField" property="city"/>
                     </column>
                 </form>
@@ -34,43 +38,41 @@
             <groupBox id="carGroupBox"
                       caption="msg://com.company.nakleika.entity.car/Car"
                       height="100%">
-                <form id="carForm" dataContainer="carDc" align="MIDDLE_CENTER">
-                    <column width="350px">
-                        <pickerField id="carModelField" property="carModel" >
-                            <actions>
-                                <action id="lookup" type="picker_lookup"/>
-                                <action id="clear" type="picker_clear"/>
-                            </actions>
-                        </pickerField>
-                        <textField id="plateNumberTextField" property="plateNumber"/>
-                        <lookupField id="carClass" property="carClass" optionsEnum="com.company.nakleika.entity.dict.ECarClass"/>
-                        <lookupField id="carColor" property="color" optionsContainer="dCarColorDc"/>
-                        <textField property="releaseYear" datatype="int"/>
-                    </column>
-                </form>
-
-
-                <groupBox caption="Photo" spacing="true"
-                          height="300px" width="300px" expand="image">
-                    <image id="image"
-                           dataContainer="carDc"
-                           property="imageFile"
-                           width="100%"
-                           align="MIDDLE_CENTER"
-                           scaleMode="CONTAIN"/>
-                    <hbox align="BOTTOM_LEFT"
-                          spacing="true">
-                        <upload id="uploadField"/>
-                        <button id="downloadImageBtn"
-                                caption="Download"
-                                invoke="onDownloadImageBtnClick"/>
-                        <button id="clearImageBtn"
-                                caption="Clear"
-                                invoke="onClearImageBtnClick"/>
-                    </hbox>
-                </groupBox>
-
-
+                <hbox id="carHBox" spacing="true">
+                    <form id="carForm" dataContainer="carDc" captionPosition="TOP">
+                        <column width="350px">
+                            <pickerField id="carModelField" property="carModel" >
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="clear" type="picker_clear"/>
+                                </actions>
+                            </pickerField>
+                            <textField id="plateNumberTextField" property="plateNumber"/>
+                            <lookupField id="carClass" property="carClass" optionsEnum="com.company.nakleika.entity.dict.ECarClass"/>
+                            <lookupField id="carColor" property="color" optionsContainer="dCarColorDc"/>
+                            <textField property="releaseYear" datatype="int"/>
+                        </column>
+                    </form>
+                    <groupBox caption="Photo" spacing="true"
+                              height="300px" width="300px" expand="image">
+                        <image id="image"
+                               dataContainer="carDc"
+                               property="imageFile"
+                               width="100%"
+                               align="MIDDLE_CENTER"
+                               scaleMode="CONTAIN"/>
+                        <hbox align="BOTTOM_LEFT"
+                              spacing="true">
+                            <upload id="uploadField"/>
+                            <button id="downloadImageBtn"
+                                    caption="Download"
+                                    invoke="onDownloadImageBtnClick"/>
+                            <button id="clearImageBtn"
+                                    caption="Clear"
+                                    invoke="onClearImageBtnClick"/>
+                        </hbox>
+                    </groupBox>
+                </hbox>
             </groupBox>
         </vbox>
 

@@ -6,5 +6,7 @@
             <item screen="nakleika_DCarModel.browse" caption="mainMsg://menu_config.nakleika_DCarModel.browse"/>
             <item screen="nakleika_DCarColor.browse" caption="mainMsg://menu_config.nakleika_DCarColor.browse"/>
         </menu>
+        <item screen="nakleika_Advertiser.browse" caption="mainMsg://menu_config.nakleika_Advertiser.browse"/>
+        <item screen="nakleika_Advertisement.browse" caption="mainMsg://menu_config.nakleika_Advertisement.browse"/>
     </menu>
 </menu-config>
