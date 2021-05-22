@@ -1,2 +1,0 @@
-alter table NAKLEIKA_CAR add constraint FK_NAKLEIKA_CAR_ON_IMAGE_FILE foreign key (IMAGE_FILE_ID) references SYS_FILE(ID);
-create index IDX_NAKLEIKA_CAR_ON_IMAGE_FILE on NAKLEIKA_CAR (IMAGE_FILE_ID);

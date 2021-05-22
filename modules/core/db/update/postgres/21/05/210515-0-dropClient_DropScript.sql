@@ -1,1 +1,0 @@
-drop table if exists NAKLEIKA_CLIENT__U31342 cascade ;
