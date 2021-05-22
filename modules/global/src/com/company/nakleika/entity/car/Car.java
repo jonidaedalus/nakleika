@@ -33,8 +33,7 @@ public class Car extends StandardEntity {
     @NotNull
     private DCarModel carModel;
 
-    @NotNull
-    @Column(name = "CAR_CLASS", nullable = false)
+    @Column(name = "CAR_CLASS")
     private String carClass;
 
     @NotNull

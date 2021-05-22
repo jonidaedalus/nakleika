@@ -59,7 +59,7 @@ create table NAKLEIKA_CAR (
     PLATE_NUMBER varchar(255) not null,
     COLOR_ID uuid not null,
     CAR_MODEL_ID uuid not null,
-    CAR_CLASS varchar(50) not null,
+    CAR_CLASS varchar(50),
     RELEASE_YEAR integer not null,
     IMAGE_FILE_ID uuid,
     --
